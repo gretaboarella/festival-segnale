@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Info e luoghi — Segnale Festival</title>
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- CSS di Swiper 14.4.0 da CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/14.4.0/swiper-bundle.min.css">
+
+  <!-- Personalizzazione per ingrandire i pallini di Swiper -->
+  <style>
+    .swiper-pagination-bullet {
+      width: 14px;
+      height: 14px;
+      margin: 0 6px !important;
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenuto">Vai al contenuto</a>
+  
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Segnale<span>Festival di design</span></a>
+      <nav aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="programma.html">Programma</a>
+        <a href="info.html" aria-current="page">Info e luoghi</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenuto" class="container">
+    <section class="intro" aria-labelledby="titolo-info">
+      <p class="eyebrow">Informazioni e sedi</p>
+      <h1 id="titolo-info">Tutto quello che c'è da sapere sul festival.</h1>
+      <p class="lead">Come partecipare, dove si trovano le sedi e le risposte alle domande più frequenti.</p>
+      <p class="reading-text">Il festival è aperto a tutte le persone interessate al design, alla grafica e alla comunicazione visiva. L'ingresso agli incontri è libero fino a esaurimento posti.</p>
+    </section>
+
+    <!-- Sezione dei luoghi del festival -->
+    <section class="content-section" aria-labelledby="titolo-luoghi">
+      <h2 id="titolo-luoghi">I luoghi del festival</h2>
+      
+      <!-- Carosello Swiper fisso a 1 slide -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          
+          <!-- Sede 1: Sede centrale -->
+          <div class="swiper-slide event-card">
+            <img src="assets/luoghi/sede-centrale.jpg" alt="Vista della sede Officina Nord" width="900" height="600">
+            <div class="event-body">
+              <h3 style="margin-bottom: 0.25rem;">Sede centrale</h3>
+              <p class="event-meta">Corso Duca degli Abruzzi 24</p>
+              <p>Officina Nord nel festival immaginario.</p>
+            </div>
+          </div>
+
+          <!-- Sede 2: Politecnico al Valentino -->
+          <div class="swiper-slide event-card">
+            <img src="assets/luoghi/politecnico-valentino.jpg" alt="Vista della sede Spazio Forma al Valentino" width="900" height="600">
+            <div class="event-body">
+              <h3 style="margin-bottom: 0.25rem;">Politecnico al Valentino</h3>
+              <p class="event-meta">Viale Mattioli 39</p>
+              <p>Spazio Forma nel festival immaginario.</p>
+            </div>
+          </div>
+
+          <!-- Sede 3: Sede di Mirafiori -->
+          <div class="swiper-slide event-card">
+            <img src="assets/luoghi/mirafiori.jpg" alt="Vista della sede Cortile Comune a Mirafiori" width="900" height="600">
+            <div class="event-body">
+              <h3 style="margin-bottom: 0.25rem;">Sede di Mirafiori</h3>
+              <p class="event-meta">Corso Luigi Settembrini 178</p>
+              <p>Cortile Comune nel festival immaginario.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Paginazione a pallini -->
+        <div class="swiper-pagination" style="margin-top: 1.5rem; position: relative;"></div>
+      </div>
+
+      <!-- Mappa uMap con titolo -->
+      <div style="margin-top: 2.5rem;">
+        <h3>Mappa delle sedi</h3>
+        <iframe style="width: 100%; height: 300px; border: 0; border-radius: 0.75rem;" allowfullscreen allow="geolocation" src="https://umap.openstreetmap.fr/it/map/segnale-sedi-del-festival-immaginario_1479665?scaleControl=false&miniMapControl=false&scrollWheelZoom=false&zoomControl=true&editMode=disabled&moreControl=true&searchControl=null&tilelayersControl=null&embedControl=null&datalayersControl=true&onLoadPanel=none&captionBar=false&captionMenus=true"></iframe>
+        <p style="margin-top: 0.5rem;"><a href="https://umap.openstreetmap.fr/it/map/segnale-sedi-del-festival-immaginario_1479665" target="_blank" rel="noopener">Visualizza a schermo intero</a></p>
+      </div>
+
+      <!-- Elenco testuale delle sedi con collegamenti alle indicazioni -->
+      <ul class="venues" style="margin-top: 1.5rem;">
+        <li>
+          <strong>Sede centrale</strong> — Corso Duca degli Abruzzi 24, Torino 
+          (<a href="https://www.google.com/maps/search/?api=1&query=Corso+Duca+degli+Abruzzi+24+Torino" target="_blank" rel="noopener">Ottieni indicazioni</a>)
+        </li>
+        <li>
+          <strong>Politecnico al Valentino</strong> — Viale Mattioli 39, Torino 
+          (<a href="https://www.google.com/maps/search/?api=1&query=Viale+Mattioli+39+Torino" target="_blank" rel="noopener">Ottieni indicazioni</a>)
+        </li>
+        <li>
+          <strong>Sede di Mirafiori</strong> — Corso Luigi Settembrini 178, Torino 
+          (<a href="https://www.google.com/maps/search/?api=1&query=Corso+Luigi+Settembrini+178+Torino" target="_blank" rel="noopener">Ottieni indicazioni</a>)
+        </li>
+      </ul>
+
+      <p class="reading-text" style="margin-top: 2rem;">Tutte le sedi sono prive di barriere architettoniche e facilmente raggiungibili con i mezzi pubblici.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>Segnale · Progetto didattico · Festival immaginario</p>
+    </div>
+  </footer>
+
+  <!-- Script JS di Swiper 14.4.0 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/14.4.0/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      slidesPerView: 1,
+      spaceBetween: 24,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      }
+    });
+  </script>
+</body>
+</html>
