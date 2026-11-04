@@ -9,12 +9,24 @@
   <!-- CSS di Swiper 14.4.0 da CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/14.4.0/swiper-bundle.min.css">
 
-  <!-- Personalizzazione per ingrandire i pallini di Swiper -->
+  <!-- Personalizzazione per ingrandire i pallini e posizionare le frecce -->
   <style>
     .swiper-pagination-bullet {
       width: 14px;
       height: 14px;
       margin: 0 6px !important;
+    }
+    
+    /* Riduce la dimensione delle frecce e le adatta al colore del tema */
+    .swiper-button-next,
+    .swiper-button-prev {
+      color: var(--colore-primario);
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 1.5rem;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -44,8 +56,8 @@
     <section class="content-section" aria-labelledby="titolo-luoghi">
       <h2 id="titolo-luoghi">I luoghi del festival</h2>
       
-      <!-- Carosello Swiper fisso a 1 slide -->
-      <div class="swiper">
+      <!-- Carosello Swiper fisso a 1 slide con frecce di navigazione -->
+      <div class="swiper" style="padding: 0 2.5rem; position: relative;">
         <div class="swiper-wrapper">
           
           <!-- Sede 1: Sede centrale -->
@@ -79,6 +91,10 @@
           </div>
 
         </div>
+
+        <!-- Frecce di navigazione avanti/indietro -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
 
         <!-- Paginazione a pallini -->
         <div class="swiper-pagination" style="margin-top: 1.5rem; position: relative;"></div>
@@ -124,6 +140,10 @@
       loop: true,
       slidesPerView: 1,
       spaceBetween: 24,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
