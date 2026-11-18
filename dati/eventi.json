@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "titolo": "Lettere in movimento",
+    "tipo": "Incontro",
+    "data": "Venerdì 12 giugno",
+    "ora": "10:00",
+    "descrizione": "Come cambia un messaggio quando cambiano le lettere? Un incontro su tipografia, ritmo e comunicazione visiva.",
+    "immagine": "assets/lettere-in-movimento.svg",
+    "alt_immagine": "Lettere geometriche disposte su una griglia",
+    "sede_id": "sede-1"
+  },
+  {
+    "id": 4,
+    "titolo": "Materia seconda",
+    "tipo": "Laboratorio",
+    "data": "Venerdì 12 giugno",
+    "ora": "14:00",
+    "descrizione": "Un laboratorio per osservare materiali di recupero e immaginare nuovi utilizzi attraverso piccoli esperimenti.",
+    "immagine": "assets/materia-seconda.svg",
+    "alt_immagine": "Forme sovrapposte che richiamano campioni di materiali",
+    "sede_id": "sede-2"
+  },
+  {
+    "id": 3,
+    "titolo": "La città in un manifesto",
+    "tipo": "Mostra",
+    "data": "Venerdì 12 giugno",
+    "ora": "17:00",
+    "descrizione": "Una raccolta di manifesti immaginari racconta quartieri, incontri e abitudini della città attraverso forme e colori.",
+    "immagine": "assets/citta-manifesto.svg",
+    "alt_immagine": "Rettangoli colorati compongono una città astratta.",
+    "sede_id": "sede-3"
+  },
+  {
+    "id": 2,
+    "titolo": "Oggetti in dialogo",
+    "tipo": "Incontro",
+    "data": "Sabato 13 giugno",
+    "ora": "10:00",
+    "descrizione": "Designer e artigiani discutono come nascono gli oggetti quotidiani, tra funzione, cura dei dettagli e possibilità di riparazione.",
+    "immagine": "assets/oggetti-dialogo.svg",
+    "alt_immagine": "Due forme geometriche si fronteggiano sopra una linea comune.",
+    "sede_id": "sede-1"
+  },
+  {
+    "id": 5,
+    "titolo": "Mappe da abitare",
+    "tipo": "Laboratorio",
+    "data": "Sabato 13 giugno",
+    "ora": "14:00",
+    "descrizione": "Disegniamo una mappa fatta di percorsi, punti di incontro e luoghi da riscoprire, partendo dall'esperienza di chi li attraversa.",
+    "immagine": "assets/mappe-abitare.svg",
+    "alt_immagine": "Un percorso collega tre punti su una mappa geometrica.",
+    "sede_id": "sede-2"
+  },
+  {
+    "id": 6,
+    "titolo": "Progettare insieme",
+    "tipo": "Mostra",
+    "data": "Sabato 13 giugno",
+    "ora": "17:00",
+    "descrizione": "Una selezione di progetti collettivi mostra come idee diverse possano diventare un risultato condiviso.",
+    "immagine": "assets/progettare-insieme.svg",
+    "alt_immagine": "Moduli di colori diversi si incastrano in una composizione comune.",
+    "sede_id": "sede-3"
+  }
+]

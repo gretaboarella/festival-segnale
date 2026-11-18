@@ -15,24 +15,55 @@
   <!-- CSS di Swiper 14.4.0 da CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/14.4.0/swiper-bundle.min.css">
 
-  <!-- Personalizzazione per ingrandire i pallini e posizionare le frecce -->
   <style>
+    /* Pallini della paginazione molto più piccoli e con colore attivo rosso */
     .swiper-pagination-bullet {
-      width: 14px;
-      height: 14px;
-      margin: 0 6px !important;
+      width: 8px !important;
+      height: 8px !important;
+      margin: 0 4px !important;
+      background: var(--colore-bordo);
+      opacity: 0.4;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: var(--colore-primario) !important;
+      opacity: 1 !important;
     }
     
-    /* Riduce la dimensione delle frecce e le adatta al colore del tema */
-    .swiper-button-next,
-    .swiper-button-prev {
-      color: var(--colore-primario);
-    }
-    
-    .swiper-button-next::after,
-    .swiper-button-prev::after {
-      font-size: 1.5rem;
+    /* Stile per i pulsanti grandi del carosello (uguali a 'Esplora il programma') */
+    .btn-carosello {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      background: var(--colore-primario);
+      color: #ffffff;
       font-weight: bold;
+      font-family: var(--font-testo);
+      font-size: 1rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      transition: background 0.2s ease;
+    }
+
+    .btn-carosello:hover {
+      background: var(--colore-primario-scuro);
+    }
+
+    /* Stile per il riquadro meteo */
+    .meteo-box {
+      margin: 2.5rem 0 1.5rem 0;
+      padding: 1.5rem;
+      border: 2px solid var(--colore-bordo);
+      border-radius: 0.75rem;
+      background: var(--colore-sfondo-card);
+    }
+
+    .meteo-box h3 {
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      font-size: 1.25rem;
     }
   </style>
 </head>
@@ -62,13 +93,13 @@
     <section class="content-section" aria-labelledby="titolo-luoghi">
       <h2 id="titolo-luoghi">I luoghi del festival</h2>
       
-      <!-- Carosello Swiper fisso a 1 slide con frecce di navigazione -->
-      <div class="swiper" style="padding: 0 2.5rem; position: relative;">
+      <!-- Carosello Swiper -->
+      <div class="swiper" style="position: relative;">
         <div class="swiper-wrapper">
           
           <!-- Sede 1: Sede centrale -->
           <div class="swiper-slide event-card">
-            <img src="assets/luoghi/sede-centrale.jpg" alt="Vista della sede Officina Nord" width="900" height="600">
+            <img src="assets/luoghi/sede-centrale.jpg" alt="Vista della sede Officina Nord" width="900" height="600" style="width: 100%; height: auto; display: block;">
             <div class="event-body">
               <h3 style="margin-bottom: 0.25rem;">Sede centrale</h3>
               <p class="event-meta">Corso Duca degli Abruzzi 24</p>
@@ -78,7 +109,7 @@
 
           <!-- Sede 2: Politecnico al Valentino -->
           <div class="swiper-slide event-card">
-            <img src="assets/luoghi/politecnico-valentino.jpg" alt="Vista della sede Spazio Forma al Valentino" width="900" height="600">
+            <img src="assets/luoghi/politecnico-valentino.jpg" alt="Vista della sede Spazio Forma al Valentino" width="900" height="600" style="width: 100%; height: auto; display: block;">
             <div class="event-body">
               <h3 style="margin-bottom: 0.25rem;">Politecnico al Valentino</h3>
               <p class="event-meta">Viale Mattioli 39</p>
@@ -88,7 +119,7 @@
 
           <!-- Sede 3: Sede di Mirafiori -->
           <div class="swiper-slide event-card">
-            <img src="assets/luoghi/mirafiori.jpg" alt="Vista della sede Cortile Comune a Mirafiori" width="900" height="600">
+            <img src="assets/luoghi/mirafiori.jpg" alt="Vista della sede Cortile Comune a Mirafiori" width="900" height="600" style="width: 100%; height: auto; display: block;">
             <div class="event-body">
               <h3 style="margin-bottom: 0.25rem;">Sede di Mirafiori</h3>
               <p class="event-meta">Corso Luigi Settembrini 178</p>
@@ -97,13 +128,16 @@
           </div>
 
         </div>
+      </div>
 
-        <!-- Frecce di navigazione avanti/indietro -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-
-        <!-- Paginazione a pallini -->
-        <div class="swiper-pagination" style="margin-top: 1.5rem; position: relative;"></div>
+      <!-- Barra di controllo: Pulsante Precedente, Pallini in mezzo, Pulsante Successivo -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem;">
+        <button id="btn-precedente" class="btn-carosello">Precedente</button>
+        
+        <!-- Paginazione a pallini posizionata in mezzo ed allineata -->
+        <div class="swiper-pagination" style="position: relative; width: auto; bottom: auto;"></div>
+        
+        <button id="btn-successivo" class="btn-carosello">Successivo</button>
       </div>
 
       <!-- Mappa uMap con titolo -->
@@ -113,7 +147,7 @@
         <p style="margin-top: 0.5rem;"><a href="https://umap.openstreetmap.fr/it/map/segnale-sedi-del-festival-immaginario_1479665" target="_blank" rel="noopener">Visualizza a schermo intero</a></p>
       </div>
 
-      <!-- Elenco testuale delle sedi con collegamenti alle indicazioni -->
+      <!-- Elenco testuale delle sedi -->
       <ul class="venues" style="margin-top: 1.5rem;">
         <li>
           <strong>Sede centrale</strong> — Corso Duca degli Abruzzi 24, Torino 
@@ -130,6 +164,18 @@
       </ul>
 
       <p class="reading-text" style="margin-top: 2rem;">Tutte le sedi sono prive di barriere architettoniche e facilmente raggiungibili con i mezzi pubblici.</p>
+
+      <!-- Riquadro Meteo a Torino adesso -->
+      <section class="meteo-box" aria-labelledby="titolo-meteo">
+        <h3 id="titolo-meteo">Meteo a Torino adesso</h3>
+        <p style="font-size: 0.875rem; color: var(--colore-primario); margin-top: 0; margin-bottom: 1rem;">
+          Nota: questo è il meteo attuale in tempo reale, non la previsione per le date del festival (12–13 giugno).
+        </p>
+        <div id="contenuto-meteo" aria-live="polite">
+          <p>Caricamento dati meteo in corso...</p>
+        </div>
+      </section>
+
     </section>
   </main>
 
@@ -146,15 +192,56 @@
       loop: true,
       slidesPerView: 1,
       spaceBetween: 24,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
       }
     });
+
+    document.getElementById('btn-precedente').addEventListener('click', () => {
+      swiper.slidePrev();
+    });
+
+    document.getElementById('btn-successivo').addEventListener('click', () => {
+      swiper.slideNext();
+    });
+
+    async function caricaMeteo() {
+      const meteoContainer = document.getElementById('contenuto-meteo');
+      const urlMeteo = 'https://api.open-meteo.com/v1/forecast?latitude=45.0703&longitude=7.6869&current=temperature_2m,wind_speed_10m&timezone=Europe%2FRome';
+
+      try {
+        const risposta = await fetch(urlMeteo);
+        if (!risposta.ok) {
+          throw new Error('Errore di rete durante il recupero dei dati meteo.');
+        }
+        const dati = await risposta.json();
+
+        const temperatura = dati.current.temperature_2m;
+        const unitaTemp = dati.current_units.temperature_2m;
+        const vento = dati.current.wind_speed_10m;
+        const unitaVento = dati.current_units.wind_speed_10m;
+        
+        const orarioCompleto = dati.current.time;
+        const oraFormattata = orarioCompleto.includes('T') ? orarioCompleto.split('T')[1] : orarioCompleto;
+
+        meteoContainer.innerHTML = `
+          <p style="margin: 0 0 0.5rem 0;"><strong>Temperatura:</strong> ${temperatura} ${unitaTemp}</p>
+          <p style="margin: 0 0 0.5rem 0;"><strong>Vento:</strong> ${vento} ${unitaVento}</p>
+          <p style="margin: 0 0 1rem 0; font-size: 0.875rem; color: #5C554E;">Ora del rilevamento: ${oraFormattata}</p>
+          <p style="margin: 0; font-size: 0.8125rem;">
+            Dati meteo: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>, licenza <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>
+          </p>
+        `;
+      } catch (errore) {
+        console.error('Errore meteo:', errore);
+        meteoContainer.innerHTML = `
+          <p style="color: var(--colore-primario); margin: 0;">Impossibile caricare i dati meteo in questo momento. Le sezioni della mappa e dei luoghi continuano a funzionare regolarmente.</p>
+        `;
+      }
+    }
+
+    caricaMeteo();
   </script>
 </body>
 </html>
