@@ -1,17 +1,19 @@
-/* Stile iniziale: tipografia, colori e variabili CSS sono già predisposti.
-   Lavoreremo su collegamenti, CSS condiviso e disposizione delle schede. */
-
-/* Scelte comuni: ogni regola usa var() per richiamarne il valore. */
+/* Stile iniziale: tipografia, colori e variabili CSS aggiornati */
 :root {
   --colore-primario: #9e3424;
   --colore-primario-scuro: #6e2217;
-  --colore-sfondo: #f5f2e9;
-  --colore-testo: #202923;
-  --font-testo: Helvetica, sans-serif;
-  --font-titoli: Arial, sans-serif;
+  --colore-sfondo: #F7F4EB; /* Sfondo carta naturale del sito */
+  --colore-sfondo-card: #FCFBF7; /* Carta leggermente più chiara per le card */
+  --colore-sfondo-secondario: #E8E1D3;
+  --colore-testo: #3d1308; /* Marrone caldo molto scuro per i testi */
+  --colore-bordo: #582f0e; /* Marrone caldo per i bordi */
+  --font-testo: 'Inter', Helvetica, sans-serif;
+  --font-titoli: 'Plus Jakarta Sans', Arial, sans-serif;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -43,9 +45,21 @@ a:focus-visible {
   margin: 0 auto;
 }
 
+/* Intestazione sticky e layout flessibile per brand e menu (sotto i 600px) */
 .site-header {
   padding: 1.25rem 0;
   border-bottom: 4px solid var(--colore-primario);
+  position: sticky;
+  top: 0;
+  background-color: var(--colore-sfondo);
+  z-index: 1000;
+}
+
+.site-header .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
 }
 
 .brand {
@@ -64,13 +78,16 @@ a:focus-visible {
   font-weight: normal;
 }
 
+/* Menu di base (sotto i 600px): in colonna */
 nav {
-  margin-top: 1rem;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 nav a {
   display: inline-block;
-  margin-right: 1rem;
   padding: 0.25rem 0;
 }
 
@@ -82,9 +99,11 @@ nav a[aria-current="page"] {
   padding: 3rem 0 1rem;
 }
 
+/* Testi 'eyebrow', 'event-meta' e 'event-place' impostati in rosso */
 .eyebrow,
-.event-meta {
-  color: #46564b;
+.event-meta,
+.event-place {
+  color: var(--colore-primario);
   font-size: 0.875rem;
   font-weight: bold;
 }
@@ -145,7 +164,9 @@ h3 {
   max-width: 54rem;
   height: auto;
   margin-top: 1.5rem;
+  border: 2px solid var(--colore-bordo);
   border-radius: 0.75rem;
+  background: var(--colore-sfondo-card);
 }
 
 .venues {
@@ -165,9 +186,9 @@ h3 {
 .event-card {
   margin-bottom: 1.5rem;
   overflow: hidden;
-  border: 1px solid #b7c0b7;
+  border: 2px solid var(--colore-bordo);
   border-radius: 0.75rem;
-  background: #ffffff;
+  background: var(--colore-sfondo-card);
 }
 
 .event-card img {
@@ -184,15 +205,10 @@ h3 {
   margin-bottom: 0;
 }
 
-.event-place {
-  color: #46564b;
-  font-size: 0.875rem;
-}
-
 .site-footer {
   padding: 1.25rem 0;
-  border-top: 1px solid #b7c0b7;
-  color: #46564b;
+  border-top: 2px solid var(--colore-bordo);
+  color: #5C554E;
   font-size: 0.875rem;
 }
 
@@ -209,8 +225,25 @@ h3 {
   top: 1rem;
 }
 
-/* Qui aggiungeremo la media query durante la demo. */
+/* Da 600px in su: brand a sinistra e menu in riga a destra sulla stessa linea */
 @media (min-width: 600px) {
+  .site-header .container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0;
+  }
+
+  nav a {
+    margin-right: 0;
+  }
+
   .event-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
